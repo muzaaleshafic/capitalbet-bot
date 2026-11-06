@@ -52,7 +52,7 @@ async function run() {
 
       const form = new FormData();
       form.append('chat_id', SUPERVISOR_CHAT_ID);
-      form.append('caption`, `📊 *Daily Branch Report*\n🏢 Branch: *${branchName}*\n📅 Date: ${new Date().toLocaleDateString()}`);
+      form.append('caption', `📊 *Daily Branch Report*\n🏢 Branch: *${branchName}*\n📅 Date: ${new Date().toLocaleDateString()}`);
       form.append('photo', fs.createReadStream(imagePath));
 
       const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
