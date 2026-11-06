@@ -19,7 +19,7 @@ async function run() {
 
   for (const branchName of BRANCHES) {
     try {
-      console.log(`Checking live report for ${branchName}...`);
+      console.log(`Capturing live report for ${branchName}...`);
       await page.goto(LIVE_SITE_URL, { waitUntil: 'networkidle2' });
 
       // Automatically fill in the branch name on the live site
@@ -33,20 +33,7 @@ async function run() {
 
       await new Promise(r => setTimeout(r, 2000));
 
-      // Check if sales data exists on the live page
-      const hasSales = await page.evaluate(() => {
-        const normalTotal = document.getElementById('normalTotal');
-        if (!normalTotal) return false;
-        const val = parseFloat(normalTotal.textContent.replace(/,/g, '')) || 0;
-        return val > 0; // Only true if sales total is greater than 0
-      });
-
-      if (!hasSales) {
-        console.log(`Skipping ${branchName} - No sales data entered on the live site yet.`);
-        continue; // Skip sending if no sales exist
-      }
-
-      // Capture screenshot if sales exist
+      // Capture screenshot directly
       const imagePath = `screenshot_${branchName}.png`;
       await page.screenshot({ path: imagePath, fullPage: true });
 
@@ -62,6 +49,8 @@ async function run() {
 
       if (!response.ok) {
         console.error(`Failed to send telegram photo for ${branchName}`);
+      } else {
+        console.log(`Successfully sent report for ${branchName}`);
       }
 
       fs.unlinkSync(imagePath);
