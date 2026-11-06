@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CAPITALBET | BRANCH TARGET SHEET</title>
+<!-- Google Fonts for Executive Typography -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+<style>
+        :root {
+            --brand-red: #8b0000;
+            --brand-red-dark: #660000;
+            --brand-red-light: #a81111;
+            --brand-gold: #f59e0b;
+            --brand-gold-glow: rgba(245, 158, 11, 0.25);
+            --bg-main: #0f172a;
+            --bg-card: #ffffff;
+            --bg-card-alt: #f8fafc;
+            --border-color: #e2e8f0;
+            --border-hover: #cbd5e1;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --text-inverse: #ffffff;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-glow: 0 0 15px rgba(139, 0, 0, 0.2);
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            margin: 0;
+            padding: 12px;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(139, 0, 0, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(15, 23, 42, 0.8) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        /* Custom Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        .dashboard {
+            height: calc(100vh - 24px);
+            height: calc(100dvh - 24px);
+            max-width: none;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(330px, 390px);
+            grid-template-rows: auto minmax(0, 1fr);
+            gap: 12px;
+        }
+
+        .section {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 16px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            min-width: 0;
+            min-height: 0;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        /* Executive Header Header Banner */
+        .header {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 40%, var(--brand-red-dark) 100%);
+            color: var(--text-inverse);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+            padding: 14px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 350px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.08));
+            pointer-events: none;
+        }
+
+        .header h1 {
+            margin: 0 0 4px;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+            background: transparent;
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #howToUseBtn {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+            color: #0f172a !important;
+            font-weight: 800;
+            padding: 8px 16px;
+            font-size: 12px;
+            box-shadow: 0 2px 10px rgba(245, 158, 11, 0.35) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        #howToUseBtn:hover {
+            box-shadow: 0 4px 16px rgba(245, 158, 11, 0.5) !important;
+            transform: translateY(-1px);
+        }
+
+        .guide-step-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid var(--brand-gold);
+            border-radius: var(--radius-md);
+            padding: 12px 14px;
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .guide-step-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--brand-gold) 0%, #d97706 100%);
+            color: #0f172a;
+            font-weight: 800;
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .guide-step-title {
+            font-size: 13px;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 0 0 4px 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .guide-step-desc {
+            font-size: 12px;
+            color: #475569;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .header .brand-title {
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .header .brand-accent {
+            color: var(--brand-gold);
+            font-weight: 800;
+        }
+
+        .header .brand-divider {
+            color: rgba(255,255,255,0.3);
+            font-weight: 300;
+            margin: 0 4px;
+        }
+
+        .header .brand-sub {
+            color: #94a3b8;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .header .brand-tagline {
+            margin: 2px 0 12px 0;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--brand-gold);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            opacity: 0.95;
+        }
+
+        /* Controls Layout */
+        .setup, .toolbar {
+            display: flex;
+            gap: 10px;
+            flex-wrap: nowrap;
+            align-items: flex-end;
+        }
+
+        .setup label {
+            min-width: 0;
+            flex: 1;
+        }
+
+        .setup label:first-child {
+            flex: 1.4;
+        }
+
+        label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #94a3b8;
+            margin-bottom: 2px;
+        }
+
+        label input {
+            margin-top: 4px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 7px 10px;
+            border: 1px solid #334155;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            background: rgba(15, 23, 42, 0.6);
+            color: #f8fafc;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .section input, .section select {
+            background: #ffffff;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        input:focus, select:focus {
+            border-color: var(--brand-gold);
+            outline: none;
+            box-shadow: 0 0 0 3px var(--brand-gold-glow);
+        }
+
+        input:disabled, select:disabled {
+            background-color: #1e293b;
+            color: #64748b;
+            cursor: not-allowed;
+            border-color: #334155;
+        }
+
+        .section input:disabled, .section select:disabled {
+            background-color: #f1f5f9;
+            color: #94a3b8;
+            border-color: #e2e8f0;
+        }
+
+        /* Executive Buttons */
+        button {
+            border: none;
+            padding: 7px 14px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-sm);
+            white-space: nowrap;
+            background: linear-gradient(135deg, var(--brand-red-light) 0%, var(--brand-red) 100%);
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button:hover:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(139, 0, 0, 0.3);
+            filter: brightness(1.1);
+        }
+
+        button:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+
+        button.secondary {
+            background: #334155;
+            color: #f1f5f9;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        button.secondary:hover:not(:disabled) {
+            background: #475569;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .toolbar button {
+            padding: 6px 11px;
+            font-size: 11px;
+        }
+
+        #adminPortalBtn {
+            background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%) !important;
+            color: white !important;
+            font-weight: 800;
+            box-shadow: 0 2px 8px rgba(124, 58, 237, 0.3) !important;
+        }
+
+        #adminPortalBtn:hover:not(:disabled) {
+            box-shadow: 0 4px 14px rgba(124, 58, 237, 0.5) !important;
+        }
+
+        /* Hints and Notices */
+        .hint {
+            font-size: 11px;
+            color: #94a3b8;
+            line-height: 1.4;
+            margin: 6px 0;
+        }
+
+        .section .hint {
+            color: var(--text-muted);
+        }
+
+        .notice {
+            padding: 8px 12px;
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 3px solid var(--brand-gold);
+            border-radius: var(--radius-sm);
+            margin-top: 8px;
+            font-size: 12px;
+            line-height: 1.4;
+            color: #fef3c7;
+            max-height: 44px;
+            overflow: auto;
+        }
+
+        /* Sales Panel Layout */
+        .sales-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            overflow: hidden;
+            background: #ffffff;
+        }
+
+        h2 {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--text-main);
+            margin: 0 0 6px;
+            letter-spacing: -0.3px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 16px;
+            background: var(--brand-red);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin: 10px 0 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .data-table-container {
+            flex: 1;
+            min-height: 0;
+            max-height: none;
+            overflow: auto;
+            overscroll-behavior: contain;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        /* Executive Tables */
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 12px;
+        }
+
+        #salesTable {
+            min-width: 640px;
+            margin: 0;
+            table-layout: fixed;
+        }
+
+        #salesTable th {
+            padding: 8px;
+            background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%) !important;
+            color: #f8fafc !important;
+            font-weight: 700;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--brand-gold);
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+
+        #salesTable td {
+            padding: 5px 6px;
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.15s;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f8fafc;
+        }
+
+        tr:hover td {
+            background-color: #f1f5f9;
+        }
+
+        #salesTable th:first-child { width: 190px; }
+        #salesTable th:last-child { width: 65px; }
+
+        #salesTable input {
+            padding: 5px 8px;
+            min-width: 0;
+            font-size: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+        }
+
+        #salesTable tfoot td {
+            position: sticky;
+            bottom: 0;
+            background: #1e293b !important;
+            color: #ffffff !important;
+            z-index: 1;
+            font-weight: 800;
+            font-family: 'JetBrains Mono', monospace;
+            border-top: 2px solid var(--brand-gold);
+            padding: 8px 6px;
+        }
+
+        #salesTable tbody button {
+            padding: 4px 8px;
+            font-size: 11px;
+            width: 100%;
+        }
+
+        #saveData {
+            align-self: flex-start;
+            margin-top: 2px;
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        }
+
+        /* Targets & Progress Right Side Panel */
+        .targets-progress {
+            min-height: 0;
+            gap: 10px;
+            display: grid;
+            grid-template-rows: auto auto;
+            align-content: start;
+        }
+
+        .targets-progress > .section:first-child {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .targets-table {
+            margin: 0;
+            font-size: 12px;
+        }
+
+        .targets-table td {
+            padding: 6px 4px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .targets-table td:first-child {
+            width: 42%;
+            font-weight: 700;
+            color: var(--text-main);
+            font-size: 11px;
+        }
+
+        .target-control {
+            display: flex;
+            gap: 5px;
+        }
+
+        .target-control input {
+            min-width: 0;
+            font-size: 12px;
+            padding: 5px 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+        }
+
+        .targets-table button {
+            padding: 5px 9px;
+            font-size: 11px;
+        }
+
+        .lock {
+            font-size: 10px;
+            margin-top: 2px;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-transform: none;
+        }
+
+        #progress {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 12px;
+            margin-top: 4px;
+        }
+
+        .progress-container {
+            margin: 0;
+            background: var(--bg-card-alt);
+            padding: 8px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .progress-label {
+            font-size: 11px;
+            margin-bottom: 5px;
+            gap: 5px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .progress-bar {
+            height: 10px;
+            background-color: #e2e8f0;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            border-radius: 5px;
+        }
+
+        .progress-fill.over-target {
+            background: linear-gradient(90deg, #f59e0b 0%, #dc2626 100%);
+        }
+
+        .remaining-box {
+            padding: 6px;
+            background: var(--bg-card-alt);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .remaining-item {
+            padding: 6px 10px;
+            margin: 4px 0;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffff;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .remaining-value {
+            font-weight: 800;
+            font-size: 12px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .positive {
+            color: #059669;
+        }
+
+        .negative {
+            color: #dc2626;
+        }
+
+        .editable-row {
+            background-color: #fffbe3 !important;
+        }
+        
+        .editable-row td {
+            background-color: #fffbe3 !important;
+        }
+
+        /* Month Picker Layout */
+        .month-field {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .month-field input {
+            min-width: 0;
+            flex: 1;
+        }
+
+        .month-field button {
+            margin-top: 0;
+        }
+
+        .month-picker {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            min-width: 0;
+            flex: 1;
+        }
+
+        .month-picker select, .month-picker input[type=number] {
+            padding: 6px 8px;
+            border: 1px solid #334155;
+            border-radius: var(--radius-sm);
+            font: inherit;
+            background: rgba(15, 23, 42, 0.6);
+            color: #f8fafc;
+            min-width: 0;
+            margin-top: 0;
+            font-size: 12px;
+        }
+
+        .section .month-picker select, .section .month-picker input[type=number] {
+            background: #ffffff;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .month-picker select { flex: 1; width: 95px; }
+        .month-picker input[type=number] { width: 72px; flex: 0 0 72px; }
+
+        /* Dialog Styling */
+        dialog {
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            max-width: 440px;
+            width: calc(100% - 32px);
+            padding: 22px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+            background: #ffffff;
+            color: var(--text-main);
+        }
+
+        dialog::backdrop {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(4px);
+        }
+
+        dialog h3 {
+            margin-top: 0;
+            font-size: 18px;
+            color: var(--text-main);
+        }
+
+        dialog form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        dialog label {
+            color: var(--text-main);
+        }
+
+        dialog input, dialog select {
+            background: #ffffff;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Form Text Alignments */
+        input[data-category], .target-control input {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Responsive Styles */
+        @media (max-height: 700px) {
+            body { padding: 6px; }
+            .dashboard { height: calc(100dvh - 12px); gap: 6px; }
+            .header { padding: 8px 14px; }
+            .header h1 { font-size: 20px; margin-bottom: 2px; }
+            .section { padding: 10px; }
+            .hint { font-size: 10px; }
+            h2 { font-size: 14px; margin-bottom: 4px; }
+            h3 { font-size: 12px; margin: 4px 0; }
+            .targets-progress { gap: 6px; }
+            .targets-table td { padding: 3px; }
+            .progress-bar { height: 8px; }
+            .remaining-item { padding: 4px 8px; margin: 2px 0; }
+            .notice { font-size: 11px; padding: 4px 8px; }
+        }
+
+        @media (max-width: 900px) {
+            .dashboard { grid-template-columns: minmax(0,1fr) minmax(280px,320px); }
+            .header h1 { font-size: 20px; }
+            .toolbar button { font-size: 10px; padding: 5px 8px; }
+            .targets-table td:first-child { width: 38%; }
+            .progress-label { font-size: 10px; }
+        }
+
+        @media (max-width: 720px), (max-height: 550px) {
+            html, body { height: auto; overflow: auto; }
+            .dashboard { height: auto; grid-template-columns: minmax(0,1fr); grid-template-rows: auto; }
+            .setup { flex-wrap: wrap; }
+            .setup label { min-width: 150px; }
+            .sales-panel .data-table-container { flex: none; height: 400px; max-height: 60vh; }
+            .targets-progress { grid-template-rows: auto auto; }
+            .toolbar { flex-wrap: wrap; gap: 6px; }
+        }
+</style></head><body>
+<div class="dashboard">
+<div class="section header"><div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+  <div>
+    <h1>
+      <span class="brand-title">CAPITAL<span class="brand-accent">BET</span></span>
+      <span class="brand-divider">|</span>
+      <span class="brand-sub">BRANCH TARGET SHEET</span>
+    </h1>
+    <p class="brand-tagline">"Feel the power of your bet"</p>
+  </div>
+  <div>
+    <button type="button" id="howToUseBtn">❓ How to Use Sheet</button>
+  </div>
+</div>
+<div class="setup"><label>Branch name<input id="branch" maxlength="100" placeholder="Enter branch name"></label><label>Tracking month<span class="month-field"><span class="month-picker" id="monthPicker"><input id="month" type="hidden"><select id="monthPart" aria-label="Tracking month"><option value="">Month</option><option value="01">January</option><option value="02">February</option><option value="03">March</option><option value="04">April</option><option value="05">May</option><option value="06">June</option><option value="07">July</option><option value="08">August</option><option value="09">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option></select><input id="monthYear" type="number" min="1900" max="9999" step="1" inputmode="numeric" placeholder="Year" aria-label="Tracking year"></span><button id="editMonth" type="button" class="secondary" disabled="">Edit month</button></span></label><button id="setup">Confirm &amp; lock setup</button></div>
+<p class="hint" id="setupHint">Select the branch and month, then confirm. The branch stays locked. Use Edit month to start a new month or return to saved records.</p>
+<div class="toolbar"><button id="export">Export CSV backup</button><button id="import" class="secondary">Import CSV / recover</button><button id="help" class="secondary">Help</button><button id="resetData" type="button" class="secondary">Reset all data</button><button id="adminPortalBtn">Admin Portal</button><input id="csvFile" type="file" accept=".csv,text/csv" hidden=""></div>
+
+<p id="storageWarning" role="alert" class="hint" hidden="">Browser storage is unavailable. Changes last only while this page stays open. Save and download portable HTML before closing to keep your records.</p><div id="status" class="notice" role="status" aria-live="polite">Enter your branch and select a month to begin.</div></div>
+<div class="section sales-panel"><h2>Daily Sales Data</h2><div class="data-table-container"><table id="salesTable"><thead><tr><th><label for="dateMonth">DATE <span class="month-picker" id="dateMonthPicker"><input id="dateMonth" type="hidden"><select id="dateMonthPart" aria-label="Dates month"><option value="">Month</option><option value="01">January</option><option value="02">February</option><option value="03">March</option><option value="04">April</option><option value="05">May</option><option value="06">June</option><option value="07">July</option><option value="08">August</option><option value="09">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option></select><input id="dateMonthYear" type="number" min="1900" max="9999" step="1" inputmode="numeric" placeholder="Year" aria-label="Dates year"></span></label></th><th>NORMAL SALES</th><th>VIRTUAL PROFITS</th><th>AVIATOR PROFITS</th><th>SLOT PROFITS</th><th>ACTION</th></tr></thead><tbody id="tableBody"></tbody><tfoot><tr class="totals-row"><td>TOTAL AMOUNT</td><td id="normalTotal">0</td><td id="virtualTotal">0</td><td id="aviatorTotal">0</td><td id="slotTotal">0</td><td></td></tr></tfoot></table></div><button id="saveData">Save All Data</button><p class="hint">Type in any blank field and press Enter to save and lock it. Use Edit only to correct saved entries. Zero is a recorded amount. Use a minus sign for a loss: negative sales increase the remaining target balance; positive sales reduce it.</p></div>
+<div class="targets-progress"><div class="section"><h2>Target Balances</h2><table class="targets-table" id="targets"></table><p class="hint">Save a target to lock it. Changes to locked targets require the password and lock again after saving.</p><h3>Progress Towards Targets</h3><div id="progress"></div></div><div class="section"><h2>Remaining to Target</h2><div class="remaining-box" id="remaining"></div></div></div>
+<dialog id="monthDialog"><form id="monthForm"><h3>Change tracking month</h3><p class="hint" style="color:var(--text-muted);">Your current month stays saved. A new month starts with blank daily sales and new targets; choosing a saved month restores its records.</p><label>Select month<span class="month-picker" id="nextMonthPicker"><input id="nextMonth" type="hidden"><select id="nextMonthPart" aria-label="New tracking month"><option value="">Month</option><option value="01">January</option><option value="02">February</option><option value="03">March</option><option value="04">April</option><option value="05">May</option><option value="06">June</option><option value="07">July</option><option value="08">August</option><option value="09">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option></select><input id="nextMonthYear" type="number" min="1900" max="9999" step="1" inputmode="numeric" placeholder="Year" aria-label="New tracking year"></span></label><label style="margin-top:12px">Or return to a saved month<select id="savedMonths"><option value="">Select saved month</option></select></label><p id="monthError" role="alert" style="color:#dc2626;font-size:12px;"></p><button type="submit">Open month</button><button id="cancelMonth" type="button" class="secondary">Cancel</button></form></dialog><dialog id="helpDialog" style="max-width:560px;max-height:85vh;overflow:auto;"><h3>Using this sheet</h3><p class="hint"></p><p>BACKUPS &amp; SUPPORT:</p><p id="passwordReason" class="hint"></p><regularly safeguard="" your="" records.="" note:="" at="" least="" export="" the="" csv="" backup="" after="" every="" 10="" days.="" for="" supervisor="" approvals="" or="" technical="" help,="" contact="" manager="" system="" it="" support="" immediately.<="" p=""><p class="hint"> </p><p>Getting Started &amp; Setup:
+    Enter your official Branch Name, select your Tracking Month and Year from the dropdowns, and click "Confirm &amp; lock setup" to initialize your monthly target sheet. Once locked, use the "Edit month" button to switch months or start a new tracking cycle without losing historical records.
+
+    </p><p>Setting Up Targets:
+    Enter your expected target values for Normal Sales, Virtual Profits, Aviator Profits, and Slot Profits. Click "Save" on each row to lock your targets. If you need to modify a locked target later, click Edit and enter the required password permit.
+
+    </p><p></p><p>Entering Daily Sales &amp; Profits:
+    The daily sales table automatically generates rows for every day of the selected month. Type your figures into any blank field and press Enter to instantly save and lock that entry. Use a minus sign (e.g., -50000) for losses—negative amounts increase the remaining target balance, while positive amounts reduce it.</p><button type="button" id="closeHelp">Close</button></regularly></dialog><dialog id="passwordDialog"><form method="dialog" id="passwordForm"><h3>Password permit</h3><p id="passwordReason" class="hint"></p><label>Password<input type="password" id="password" autocomplete="off" required=""></label><p id="passwordError" role="alert" style="color:#dc2626;font-size:12px;"></p><button type="submit">Unlock</button><button type="button" id="passwordCancel" class="secondary">Cancel</button></form></dialog>
+
+<dialog id="howToUseDialog" style="max-width:620px;width:95%;max-height:85vh;overflow:auto;">
+  <h3 style="margin-top:0;display:flex;align-items:center;gap:8px;color:#0f172a;">
+    <span>📖 How to Use the Branch Target Sheet</span>
+  </h3>
+  <p class="hint" style="margin-bottom:14px;color:#64748b;">Follow this 4-step workflow to configure your branch targets, record daily profits, and monitor performance.</p>
+
+  <div class="guide-step-card">
+    <div class="guide-step-badge">Step 1</div>
+    <div class="guide-step-title">1. SETUP BRANCH &amp; MONTH</div>
+    <p class="guide-step-desc">Enter your <strong>Branch Name</strong>, select the <strong>Tracking Month</strong> and <strong>Year</strong>, then click <strong>"Confirm &amp; lock setup"</strong>. This initializes the monthly tracking sheet and locks the branch context.</p>
+  </div>
+
+  <div class="guide-step-card" style="border-left-color: #2563eb;">
+    <div class="guide-step-badge" style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); color:white;">Step 2</div>
+    <div class="guide-step-title">2. INPUT TARGET BALANCES</div>
+    <p class="guide-step-desc">Enter expected target figures for <strong>NORMAL TARGETS</strong>, <strong>VIRTUAL TARGETS</strong>, <strong>AVIATOR TARGETS</strong>, and <strong>SLOT TARGETS</strong>. Click <strong>"Save"</strong> on each row to lock the target amount.</p>
+  </div>
+
+  <div class="guide-step-card" style="border-left-color: #8b0000;">
+    <div class="guide-step-badge" style="background: linear-gradient(135deg, #a81111 0%, #660000 100%); color:white;">Step 3</div>
+    <div class="guide-step-title">3. ENTER DAILY SALES DATA</div>
+    <p class="guide-step-desc">Fill in daily figure records row by row for Normal Sales, Virtual Profits, Aviator Profits, and Slot Profits. Press <strong>Enter</strong> in any cell or click <strong>"Edit" / "Save"</strong> on the row to lock entries.</p>
+  </div>
+
+  <div class="guide-step-card" style="border-left-color: #059669;">
+    <div class="guide-step-badge" style="background: linear-gradient(135deg, #10b981 0%, #047857 100%); color:white;">Step 4</div>
+    <div class="guide-step-title">4. SAVE &amp; MONITOR PROGRESS</div>
+    <p class="guide-step-desc">Click <strong>"Save All Data"</strong> at the bottom of the table to save pending entries. Watch the progress bars in <strong>Progress Towards Targets</strong> and check <strong>Remaining to Target</strong> calculations update automatically in real-time.</p>
+  </div>
+
+  <div style="text-align:right;margin-top:16px;">
+    <button type="button" id="closeHowToUse" class="secondary">Close Tutorial</button>
+  </div>
+</dialog>
+
+<dialog id="adminLoginDialog">
+  <form id="adminLoginForm">
+    <h3>Supervisor / Admin Access</h3>
+    <p class="hint">Enter Admin Password to access the Admin Portal.</p>
+    <label>Admin Password<input type="password" id="adminPasswordInput" autocomplete="off" required=""></label>
+    <p id="adminLoginError" role="alert" style="color:#dc2626;font-size:12px;margin-top:6px;"></p>
+    <button type="submit" style="background: linear-gradient(135deg, #059669 0%, #047857 100%);">Login to Admin</button>
+    <button type="button" id="closeAdminLogin" class="secondary">Cancel</button>
+  </form>
+</dialog>
+
+<dialog id="adminPortalDialog" style="max-width:750px;width:95%;">
+  <div>
+    <h3 style="margin-top:0;">Supervisor Admin Dashboard</h3>
+    <div class="notice" style="background:#ecfdf5;border-left:4px solid #059669;margin-bottom:12px;color:#065f46;">
+      Logged in as Administrator / Supervisor. Full multi-branch performance overview, target assignment, and security controls.
+    </div>
+    
+    <div style="margin-bottom:16px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <h4 style="margin:0 0 6px 0;font-size:14px;color:var(--text-main);">All Branches Performance &amp; Target Assignments</h4>
+        <button type="button" id="openBranchManagerBtn" style="padding:4px 10px;font-size:11px;background:#334155;">Manage Directory</button>
+      </div>
+      <p class="hint">Review branch performance across all tracked categories (Normal Sales, Virtual, Aviator, Slot) and assign Daily, Weekly, or Monthly targets.</p>
+      <div id="adminBranchTableContainer" style="max-height:220px;overflow:auto;margin-top:8px;border:1px solid var(--border-color);border-radius:var(--radius-sm);">
+        <table id="adminBranchTable" style="font-size:12px;width:100%;border-collapse:collapse;">
+          <thead>
+            <tr style="background:#0f172a;color:white;">
+              <th style="padding:8px;text-align:left;">Branch</th>
+              <th style="padding:8px;text-align:left;">Month</th>
+              <th style="padding:8px;text-align:right;">Normal Sales</th>
+              <th style="padding:8px;text-align:right;">Virtual Profits</th>
+              <th style="padding:8px;text-align:right;">Aviator Profits</th>
+              <th style="padding:8px;text-align:right;">Slot Profits</th>
+              <th style="padding:8px;text-align:center;">Action</th>
+            </tr>
+          </thead>
+          <tbody id="adminBranchTbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div style="margin-bottom:16px;background:var(--bg-card-alt);padding:12px;border-radius:var(--radius-md);border:1px solid var(--border-color);">
+      <h4 style="margin-top:0;margin-bottom:8px;font-size:13px;color:var(--text-main);">Assign Daily / Weekly / Monthly Targets</h4>
+      <form id="assignTargetForm" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+        <div>
+          <label>Branch Name<input type="text" id="targetBranchInput" placeholder="e.g. Mukono-Wantoni" required=""></label>
+        </div>
+        <div>
+          <label>Target Period<select id="targetPeriodSelect" style="width:100%;"><option value="daily">Daily Target</option><option value="weekly">Weekly Target</option><option value="monthly">Monthly Target</option></select></label>
+        </div>
+        <div>
+          <label>Target Amount (UGX)<input type="text" id="targetAmountInput" placeholder="e.g. 5,000,000" required=""></label>
+        </div>
+        <div style="grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
+          <p id="targetAssignMsg" style="font-size:12px;margin:0;"></p>
+          <button type="submit" style="background: linear-gradient(135deg, #059669 0%, #047857 100%);padding:8px 16px;">Save &amp; Assign Target</button>
+        </div>
+      </form>
+    </div>
+
+    <hr style="border:0;border-top:1px solid var(--border-color);margin:16px 0;">
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div>
+        <h4 style="margin-top:0;margin-bottom:8px;font-size:13px;color:var(--text-main);">Change Admin Password</h4>
+        <form id="changeAdminPassForm">
+          <label>Current Password<input type="password" id="currentAdminPass" required=""></label>
+          <label style="margin-top:6px;">New Password<input type="password" id="newAdminPass" required="" minlength="4"></label>
+          <label style="margin-top:6px;">Confirm New Password<input type="password" id="confirmAdminPass" required="" minlength="4"></label>
+          <p id="adminPassMsg" style="font-size:12px;margin-top:6px;"></p>
+          <button type="submit" style="margin-top:8px;background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);">Update Password</button>
+        </form>
+      </div>
+      <div>
+        <h4 style="margin-top:0;margin-bottom:8px;font-size:13px;color:var(--text-main);">System Controls &amp; File Actions</h4>
+        <p class="hint">Current Active Branch: <strong id="adminBranchDisplay" style="color:var(--text-main);">—</strong> | Month: <strong id="adminMonthDisplay" style="color:var(--text-main);">—</strong></p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+          <button type="button" id="newSheet" class="secondary" style="background: #334155;">New Monthly Sheet</button>
+          <button type="button" id="download" class="secondary" style="background: #334155;">Download Portable HTML</button>
+          <button type="button" id="adminForceUnlock" style="background: linear-gradient(135deg, #d97706 0%, #b45309 100%);">Unlock Branch Setup</button>
+          <button type="button" id="adminExportAll" style="background: linear-gradient(135deg, #059669 0%, #047857 100%);">Export Full Backup (CSV)</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:20px;text-align:right;">
+      <button type="button" id="closeAdminPortal" class="secondary">Close Admin Portal</button>
+    </div>
+  </div>
+</dialog>
+
+
+<dialog id="branchManagerDialog" style="max-width:650px;width:95%;">
+  <div>
+    <h3 style="margin-top:0;">Branch Directory &amp; Management</h3>
+    <p class="hint">View all registered branches, edit branch names or details, or remove inactive branch records.</p>
+    
+    <div style="max-height:300px;overflow:auto;margin:12px 0;border:1px solid var(--border-color);border-radius:var(--radius-sm);">
+      <table style="width:100%;border-collapse:collapse;font-size:12px;">
+        <thead>
+          <tr style="background:#0f172a;color:white;">
+            <th style="padding:8px;text-align:left;">Branch Name</th>
+            <th style="padding:8px;text-align:left;">Active Month</th>
+            <th style="padding:8px;text-align:center;">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="branchManagerTbody"></tbody>
+      </table>
+    </div>
+
+    <div style="text-align:right;margin-top:16px;">
+      <button type="button" id="closeBranchManager" class="secondary">Back to Admin Dashboard</button>
+    </div>
+  </div>
+</dialog>
+
+<script id="embeddedState" type="application/json">null</script>
+<script>
+'use strict';
+document.querySelectorAll('dialog').forEach(d=>{
+ if(typeof d.showModal!=='function'){
+  d.hidden=true;
+  d.showModal=function(){this.hidden=false;this.setAttribute('open','');this.style.position='fixed';this.style.top='15%';this.style.zIndex='100';};
+  d.close=function(){this.hidden=true;this.removeAttribute('open');};
+ }
+});
+const template = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+const APP_ID = 'sales-tracker-28d55ecc-6dcb-431a-9ba0-25d9a0e04e4e';
+const keys = ['normal','virtual','aviator','slot'];
+const labels = {normal:'Normal Sales',virtual:'Virtual Profits',aviator:'Aviator Profits',slot:'Slot Profits'};
+const $ = id => document.getElementById(id);
+const blank = () => ({version:2,branch:'',month:'',setupLocked:false,targets:Object.fromEntries(keys.map(k=>[k,{value:null,locked:false}])),rows:{},device:null});
+let state=blank(), device=null, blocked=false, storageOK=true;
+const editingTargets=new Set(), editingRows=new Set();
+function notify(t){$('status').textContent=t;}
+function uid(){return crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36)+Math.random().toString(36).slice(2);}
+function validMonth(m){return /^\d{4}-(0[1-9]|1[0-2])$/.test(m) && +m.slice(0,4)>=1900 && +m.slice(0,4)<=9999;}
+function dates(m){if(!validMonth(m))return [];const [y,n]=m.split('-').map(Number);return Array.from({length:new Date(y,n,0).getDate()},(_,i)=>m+'-'+String(i+1).padStart(2,'0'));}
+function amount(v,nullable=true){if(v===''||v===null){if(nullable)return null;throw Error('Enter an amount.');}const s=String(v).replace(/,/g,'').trim();if(!/^-?\d+(\.\d{1,2})?$/.test(s))throw Error('Use a positive or negative number with at most two decimal places.');const n=Number(s);if(!Number.isFinite(n)||Math.abs(n)>1e15)throw Error('Amount is too large.');return n;}
+
+function moneyDisplay(value){return value===null||value===undefined||value===''?'':Number(value).toLocaleString('en-GB',{maximumFractionDigits:2});}
+function groupedMoneyText(value){
+ const raw=String(value).replace(/,/g,'');
+ if(!/^-?\d*(\.\d*)?$/.test(raw))return value;
+ const [whole,fraction]=raw.split('.');
+ const grouped=whole.replace(/\B(?=(\d{3})+(?!\d))/g,',');
+ return grouped+(fraction===undefined?'':'.'+fraction);
+}
+function formatMoneyInput(input){
+ const old=input.value,start=input.selectionStart,end=input.selectionEnd;
+ const formatted=groupedMoneyText(old);
+ if(formatted===old)return;
+ const significantBefore=position=>old.slice(0,position).replace(/,/g,'').length;
+ const positionFor=count=>{if(count===0)return 0;let n=0;for(let i=0;i<formatted.length;i++){if(formatted[i]!==',')n++;if(n===count)return i+1;}return formatted.length;};
+ input.value=formatted;
+ if(start!==null&&start!==undefined&&typeof input.setSelectionRange==='function')input.setSelectionRange(positionFor(significantBefore(start)),positionFor(significantBefore(end??start)));
+}
+
+function persist(next){state=next;try{localStorage.setItem(APP_ID,JSON.stringify(next));syncBranchRegistry();storageOK=true;}catch(e){storageOK=false;}$('storageWarning').hidden=storageOK;return true;}
+
+// Multi-Branch Registry Synchronization for Supervisor Admin Portal
+const REGISTRY_KEY = 'capitalbet_branches_registry_v2';
+function syncBranchRegistry(){
+  if(!state.branch || !state.month) return;
+  try {
+    let reg = JSON.parse(localStorage.getItem(REGISTRY_KEY) || '{}');
+    if(!reg[state.branch]) reg[state.branch] = { months: {} };
+    reg[state.branch].months[state.month] = state;
+    reg[state.branch].currentMonth = state.month;
+    reg[state.branch].assignedTargets = reg[state.branch].assignedTargets || { daily: {}, weekly: {}, monthly: {} };
+    localStorage.setItem(REGISTRY_KEY, JSON.stringify(reg));
+  } catch(e){}
+}
+
+function copy(){return JSON.parse(JSON.stringify(state));}
+function canWork(){return !blocked&&state.setupLocked;}
+function render(){
+ $('branch').value=state.branch;setMonthPicker('month',state.month);setMonthPicker('dateMonth',state.month);
+ ['branch','setup'].forEach(id=>$(id).disabled=state.setupLocked||blocked);
+ ['month','dateMonth'].forEach(id=>{$(id+'Part').disabled=state.setupLocked||blocked;$(id+'Year').disabled=state.setupLocked||blocked;});
+ ['saveData','export','download','editMonth','resetData'].forEach(id=>{ if($(id)) $(id).disabled=!canWork(); });
+ $('setupHint').textContent=state.setupLocked?'Branch locked. Use Edit month to open a fresh month or return to saved records.':'Select the branch and first month, then confirm. The branch remains locked.';
+ $('targets').replaceChildren();$('progress').replaceChildren();$('remaining').replaceChildren();
+ for(const k of keys){const t=state.targets[k], tr=document.createElement('tr');tr.innerHTML=`<td>${k.toUpperCase()} TARGET<div class="lock">${t.locked?'Locked':'Not set'}</div></td><td><div class="target-control"><input id="${k}Target" type="text" inputmode="decimal" aria-label="${k} target" placeholder="Enter target"><button id="${k}TargetButton">${t.locked?'Edit':'Save'}</button></div></td>`;$('targets').append(tr);const inp=$(k+'Target');inp.value=moneyDisplay(t.value);inp.oninput=()=>formatMoneyInput(inp);inp.disabled=!canWork()||t.locked;$(k+'TargetButton').disabled=!canWork();$(k+'TargetButton').onclick=()=>targetAction(k);
+ $('progress').insertAdjacentHTML('beforeend',`<div class="progress-container"><div class="progress-label"><span>${labels[k]}</span><span id="${k}Percent">—</span></div><div class="progress-bar"><div class="progress-fill" id="${k}Progress"></div></div></div>`);
+ $('remaining').insertAdjacentHTML('beforeend',`<div class="remaining-item"><span>${labels[k]}</span><span class="remaining-value" id="${k}Remaining">—</span></div>`);}
+ $('tableBody').replaceChildren();for(const date of dates(state.month)){const tr=document.createElement('tr');tr.dataset.date=date;const [y,m,d]=date.split('-').map(Number);const td=document.createElement('td');td.textContent=new Intl.DateTimeFormat('en-GB',{day:'2-digit',month:'short',year:'numeric'}).format(new Date(y,m-1,d));tr.append(td);for(const k of keys){const cell=document.createElement('td'),inp=document.createElement('input');inp.type='text';inp.inputMode='text';inp.placeholder='0';inp.autocomplete='off';inp.dataset.category=k;inp.setAttribute('aria-label',labels[k]+' '+date);inp.value=moneyDisplay(state.rows[date]?.[k]);inp.disabled=!canWork()||(state.rows[date]?.[k]!==null&&state.rows[date]?.[k]!==undefined);inp.oninput= me=>{formatMoneyInput(inp);markRowDraft(date,tr);totals();};inp.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();saveEntry(date,k,inp,tr);}};cell.append(inp);tr.append(cell);}const cell=document.createElement('td'),btn=document.createElement('button');btn.textContent='Edit';btn.disabled=!canWork()||!keys.some(k=>state.rows[date]?.[k]!==null&&state.rows[date]?.[k]!==undefined);btn.onclick=()=>rowAction(date,tr,btn);cell.append(btn);tr.append(cell);$('tableBody').append(tr);} editingRows.clear();editingTargets.clear();totals();}
+function totals(){for(const k of keys){let total=0;document.querySelectorAll(`[data-category="${k}"]`).forEach(i=>{try{total+=amount(i.value)||0;}catch{}});$(k+'Total').textContent=total.toLocaleString('en-GB',{maximumFractionDigits:2});const target=state.targets[k].value;const p=target>0?total/target*100:null;$(k+'Percent').textContent=p===null?'Target not set':p.toFixed(1)+'%';$(k+'Progress').style.width=(p===null?0:Math.max(0,Math.min(p,100)))+'%';$(k+'Progress').classList.toggle('over-target',target!==null&&total>=target);const remaining=$(k+'Remaining');const difference=target===null?null:Math.round((total-target)*100)/100;const formatted=difference===null?'':Math.abs(difference).toLocaleString('en-GB',{maximumFractionDigits:2});remaining.textContent=difference===null?'—':difference>0?'Exceeded by '+formatted:difference===0?'Target reached':formatted+' remaining';remaining.classList.toggle('positive',difference!==null&&difference>=0);remaining.classList.toggle('negative',difference!==null&&difference<0);}}
+$('help').onclick=()=>$('helpDialog').showModal();
+$('closeHelp').onclick=()=>$('helpDialog').close();
+let passwordResolve=null, permitPassword='123456';
+function permit(reason,password='123456'){return new Promise(resolve=>{passwordResolve=resolve;permitPassword=password;$('password').value='';$('passwordReason').textContent=reason;$('passwordError').textContent='';$('passwordDialog').showModal();$('password').focus();});}
+function finishPermit(ok){$('passwordDialog').close();if(passwordResolve)passwordResolve(ok);passwordResolve=null;$('password').value='';}
+$('passwordForm').onsubmit=e=>{e.preventDefault();if($('password').value===permitPassword)finishPermit(true);else $('passwordError').textContent='Incorrect password.';};
+$('passwordCancel').onclick=()=>finishPermit(false);
+$('resetData').onclick=async()=>{
+ if(!canWork())return;
+ if(!await permit('Reset all daily sales and targets for this branch, including every saved month? Branch name and selected month will stay. This cannot be undone.','wendy456'))return;
+ const next=copy();
+ function clearMonth(record){record.rows={};record.targets=Object.fromEntries(keys.map(k=>[k,{value:0,locked:false}]));}
+ clearMonth(next);
+ Object.values(next.history||{}).forEach(clearMonth);
+ if(persist(next)){render();notify('All daily sales and targets reset to zero, including saved months. Enter new targets and sales to continue.');}
+};
+$('passwordDialog').addEventListener('cancel',e=>{e.preventDefault();finishPermit(false);});
+async function targetAction(k){if(!canWork())return;const t=state.targets[k],input=$(k+'Target'),btn=$(k+'TargetButton');if(t.locked&&!editingTargets.has(k)){if(!await permit('Permit changes to the '+k+' target?'))return;editingTargets.add(k);input.disabled=false;btn.textContent='Save & lock';input.focus();return;}try{const value=amount(input.value,false);if(value<=0)throw Error('Target must be greater than zero.');const next=copy();next.targets[k]={value,locked:true};if(persist(next)){editingTargets.delete(k);input.value=moneyDisplay(value);input.disabled=true;btn.textContent='Edit';btn.closest('tr').querySelector('.lock').textContent='Locked';totals();notify(k.toUpperCase()+' target saved and locked.');}}catch(e){notify(e.message);}}
+function readRow(tr){return Object.fromEntries([...tr.querySelectorAll('input')].map(i=>[i.dataset.category,amount(i.value)]));}
+
+function rowHasDraft(date,tr){
+ return [...tr.querySelectorAll('input')].some(i=>{
+  try{return amount(i.value)!==(state.rows[date]?.[i.dataset.category]??null);}catch{return true;}
+ });
+}
+function markRowDraft(date,tr){
+ const dirty=rowHasDraft(date,tr);
+ if(dirty)editingRows.add(date);else editingRows.delete(date);
+ tr.classList.toggle('editable-row',dirty);
+ const btn=tr.querySelector('button');btn.textContent=dirty?'Save':'Edit';
+ btn.disabled=!canWork()||(!dirty&&!keys.some(k=>state.rows[date]?.[k]!==null&&state.rows[date]?.[k]!==undefined));
+}
+function lockSavedEntries(date,tr){
+ for(const input of tr.querySelectorAll('input')){
+  const saved=state.rows[date]?.[input.dataset.category]??null;
+  try{input.disabled=!canWork()||(saved!==null&&amount(input.value)===saved);}catch{input.disabled=!canWork();}
+ }
+ markRowDraft(date,tr);
+}
+function saveEntry(date,category,input,tr){
+ if(!canWork()||input.disabled)return;
+ try{
+  const value=amount(input.value,false),next=copy();
+  if(!next.rows[date])next.rows[date]=Object.fromEntries(keys.map(k=>[k,null]));
+  next.rows[date][category]=value;
+  if(persist(next)){
+   input.value=moneyDisplay(value);lockSavedEntries(date,tr);totals();notify(labels[category]+' for '+date+' saved and locked.');
+   const inputs=[...tr.querySelectorAll('input')],index=inputs.indexOf(input);
+   const nextInput=inputs.slice(index+1).find(i=>!i.disabled);
+   if(nextInput)nextInput.focus();
+  }
+ }catch(e){notify(e.message);input.focus();}
+}
+function rowAction(date,tr,btn){
+ if(!canWork())return;
+ if(btn.textContent==='Edit'){
+  tr.querySelectorAll('input').forEach(i=>i.disabled=false);
+  tr.classList.add('editable-row');btn.textContent='Save';editingRows.add(date);
+  const first=[...tr.querySelectorAll('input')].find(i=>i.value!=='');if(first)first.focus();return;
+ }
+ try{const next=copy();next.rows[date]=readRow(tr);if(persist(next)){lockSavedEntries(date,tr);totals();notify('Saved and locked entries for '+date+'. Blank fields remain ready for entry.');}}catch(e){notify(e.message);}
+}
+$('saveData').onclick=()=>{try{const next=copy();for(const tr of $('tableBody').children){if(editingRows.has(tr.dataset.date))next.rows[tr.dataset.date]=readRow(tr);}if(persist(next)){render();notify('All daily sales data saved.');}}catch(e){notify(e.message);}};
+
+function switchTrackingMonth(month){
+ if(!canWork())throw Error('Complete branch setup before changing months.');
+ if(unsaved())throw Error('Save your open sales rows and targets before changing months.');
+ if(!validMonth(month))throw Error('Select a valid month (1900–9999).');
+ if(month===state.month)return false;
+ const current=copy(), history=current.history||{};
+ delete current.history;
+ history[current.month]=current;
+ const next=history[month]?JSON.parse(JSON.stringify(history[month])):blank();
+ next.branch=state.branch;next.month=month;next.setupLocked=true;next.device=device;next.history=history;
+ if(!persist(next))throw Error('Could not save the month change. Your current month remains open.');
+ return true;
+}
+$('editMonth').onclick=()=>{
+ if(!canWork())return;
+ if(unsaved()){notify('Save your open sales rows and targets before changing months.');return;}
+ const [year,month]=state.month.split('-').map(Number);
+ const next=month===12?(year+1)+'-01':year+'-'+String(month+1).padStart(2,'0');
+ setMonthPicker('nextMonth',validMonth(next)?next:state.month);$('monthError').textContent='';
+ $('savedMonths').replaceChildren();const placeholder=document.createElement('option');placeholder.value='';placeholder.textContent='Select saved month';$('savedMonths').append(placeholder);
+ const months=new Set([state.month,...Object.keys(state.history||{})]);
+ for(const m of [...months].sort().reverse()){const option=document.createElement('option');option.value=m;option.textContent=m+(m===state.month?' (current)':'');$('savedMonths').append(option);}
+ $('monthDialog').showModal();$('nextMonthPart').focus();
+};
+$('savedMonths').onchange=e=>{if(e.target.value)setMonthPicker('nextMonth',e.target.value);};
+$('cancelMonth').onclick=()=>$('monthDialog').close();
+$('monthForm').onsubmit=e=>{e.preventDefault();try{const month=readMonthPicker('nextMonth');const existed=!!state.history?.[month];if(switchTrackingMonth(month)){render();notify(existed?'Saved records restored for '+month+'.':'Fresh month opened: '+month+'. Enter new targets and daily sales. Previous months remain saved.');}$('monthDialog').close();}catch(err){$('monthError').textContent=err.message;}};
+
+function previewMonth(value){if(!validMonth(value))return;state.branch=$('branch').value;state.month=value;render();notify('Preview month selected. Confirm branch and month to begin recording.');}
+function setMonthPicker(id,value){
+ const valid=validMonth(value), parts=valid?value.split('-'):['',''];
+ $(id).value=valid?value:'';$(id+'Part').value=parts[1];$(id+'Year').value=parts[0];
+}
+function readMonthPicker(id){
+ const value=$(id+'Year').value+'-'+$(id+'Part').value;
+ $(id).value=validMonth(value)?value:'';
+ return $(id).value;
+}
+['month','dateMonth','nextMonth'].forEach(id=>{
+ const changed=()=>{const value=readMonthPicker(id);if(id!=='nextMonth'&&value)previewMonth(value);};
+ $(id+'Part').onchange=changed;$(id+'Year').onchange=changed;
+});
+$('setup').onclick=()=>{const branch=$('branch').value.trim(),month=readMonthPicker('month');if(!branch||!validMonth(month)){notify('Enter a branch name and valid month (1900–9999).');return;}if(!confirm('Lock branch "'+branch+'" and begin tracking '+month+'?'))return;const next=copy();next.branch=branch;next.month=month;next.setupLocked=true;next.device=device;
+// Preserve records saved by the original HTML only when its December 2025 period matches.
+try{const legacy=JSON.parse(localStorage.getItem('salesData_nasuuti')||'null');if(month==='2025-12'&&legacy){for(const date of dates(month)){const day=+date.slice(-2),old=legacy['12/'+day+'/2025'];if(old)next.rows[date]=Object.fromEntries(keys.map(k=>[k,k==='slot'?null:amount(old[k]??null)]));}}}catch(e){notify('Legacy data could not be migrated; the original saved data remains untouched.');}
+if(persist(next)){render();notify('Branch locked and month selected. Enter and save your targets. Use Download portable HTML to keep a copy of your records.');}};
+function download(text,type,name){const u=URL.createObjectURL(new Blob([text],{type}));const a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);}
+function unsaved(){return editingRows.size||editingTargets.size;}
+function filename(){return state.branch.replace(/[^a-z0-9_-]/gi,'_')+'_'+state.month;}
+const header=['record_type','key','value','locked','date','normal','virtual','aviator','slot'];
+function csvCell(v){return '"'+String(v??'').replace(/"/g,'""')+'"';}
+function exportCSV(){if(unsaved()){notify('Save your open rows and targets before exporting.');return;}const rows=[header,['meta','format','sales-tracker-v2'],['meta','branch',state.branch],['meta','month',state.month],['meta','setupLocked','true']];for(const k of keys)rows.push(['target',k,state.targets[k].value,state.targets[k].locked?'true':'false']);for(const d of dates(state.month))rows.push(['sale','','','',d,...keys.map(k=>state.rows[d]?.[k]??'')]);download('\uFEFF'+rows.map(r=>r.map(csvCell).join(',')).join('\r\n'),'text/csv;charset=utf-8',filename()+'_backup.csv');notify('CSV backup exported. It includes branch, month, targets, locks and daily amounts.');}
+$('export').onclick=exportCSV;
+$('newSheet').onclick=()=>{const fresh=template.replace(APP_ID,'sales-tracker-'+uid()).replace(/<script id="embeddedState" type="application\/json">[\s\S]*?<\/script>/,'<script id="embeddedState" type="application/json">null<\/script>');download(fresh,'text/html;charset=utf-8','New_Target_Tracking_Sheet.html');notify('New blank monthly sheet downloaded. Open it to choose another branch or month.');};
+function parseCSV(text){text=text.replace(/^\uFEFF/,'');const rows=[];let row=[],cell='',quoted=false,closed=false;for(let i=0;i<text.length;i++){const c=text[i];if(quoted){if(c==='"'){if(text[i+1]==='"'){cell+='"';i++;}else{quoted=false;closed=true;}}else cell+=c;}else if(c==='"'){if(cell||closed)throw Error('Malformed CSV quote.');quoted=true;}else if(c===','){row.push(cell);cell='';closed=false;}else if(c==='\r'||c==='\n'){if(c==='\r'&&text[i+1]==='\n')i++;row.push(cell);if(row.some(v=>v!==''))rows.push(row);row=[];cell='';closed=false;}else{if(closed)throw Error('Malformed CSV field.');cell+=c;}}if(quoted)throw Error('Unclosed CSV quote.');if(cell||row.length){row.push(cell);rows.push(row);}return rows;}
+function stateFromCSV(text){const rows=parseCSV(text);if(!rows.length||JSON.stringify(rows.shift())!==JSON.stringify(header))throw Error('Use a CSV backup exported by this tracker.');const next=blank(),meta={},seenTargets=new Set(),sales=[];for(const row of rows){if(row.length>9)throw Error('Unexpected CSV columns.');const [type,key,value,locked,date,...values]=row;if(type==='meta'){if(Object.hasOwn(meta,key)||!['format','branch','month','setupLocked'].includes(key))throw Error('Duplicate or unknown metadata.');meta[key]=value;}else if(type==='target'){if(!keys.includes(key)||seenTargets.has(key)||!['true','false'].includes(locked))throw Error('Invalid target record.');seenTargets.add(key);const n=amount(value);if((n!==null&&n<=0)||(locked==='true'&&n===null)||(n!==null&&locked!=='true'))throw Error('Invalid target lock or amount.');next.targets[key]={value:n,locked:locked==='true'};}else if(type==='sale'){if(values.length!==4)throw Error('Invalid sales record.');sales.push([date,values]);}else throw Error('Unknown record type.');}
+if(meta.format!=='sales-tracker-v2'||meta.setupLocked!=='true'||!meta.branch?.trim()||meta.branch.length>100||!validMonth(meta.month)||seenTargets.size!==4)throw Error('Backup is incomplete or has invalid settings.');next.branch=meta.branch;next.month=meta.month;next.setupLocked=true;const allowed=new Set(dates(next.month));for(const [date,values] of sales){if(!allowed.has(date)||Object.hasOwn(next.rows,date))throw Error('Duplicate date or date outside the tracking month.');next.rows[date]=Object.fromEntries(keys.map((k,i)=>[k,amount(values[i])]));}if(sales.length!==allowed.size)throw Error('Backup is missing daily records.');return next;}
+$('import').onclick=()=>{$('csvFile').value='';$('csvFile').click();};
+$('csvFile').onchange=async e=>{const file=e.target.files[0];if(!file)return;try{if(file.size>5e6)throw Error('CSV backup is too large.');const next=stateFromCSV(await file.text());if(state.setupLocked&&(next.branch!==state.branch||next.month!==state.month))throw Error('This backup has a different branch or month. Open that month first, or use New monthly sheet.');if(!await permit('Authorize CSV recovery in this browser?'))return;if(!confirm('Restore '+next.branch+' / '+next.month+'? Current data will be replaced. Export a backup first if needed.'))return;next.device=device;if(state.branch===next.branch&&state.history)next.history=JSON.parse(JSON.stringify(state.history));if(persist(next)){blocked=false;render();notify('Recovery complete. Existing branch, month and target locks preserved. Download a new portable HTML copy for this browser.');}}catch(e){notify('Import failed: '+e.message);}};
+$('download').onclick=()=>{if(unsaved()){notify('Save your open rows and targets before downloading.');return;}const doc=new DOMParser().parseFromString(template,'text/html');doc.getElementById('embeddedState').textContent=JSON.stringify(state).replace(/</g,'\\u003c');download('<!DOCTYPE html>\n'+doc.documentElement.outerHTML,'text/html;charset=utf-8',filename()+'_portable.html');notify('Portable HTML downloaded with current records and saved months. Open it in another browser or device to continue.');};
+window.addEventListener('beforeunload',e=>{if(unsaved()){e.preventDefault();e.returnValue='';}});
+try{device=localStorage.getItem(APP_ID+'-device');if(!device){device=uid();localStorage.setItem(APP_ID+'-device',device);}const embedded=JSON.parse($('embeddedState').textContent);const saved=JSON.parse(localStorage.getItem(APP_ID)||'null');state=embedded||saved||blank();if(saved&&(!embedded||saved.branch===embedded.branch)){state=saved;}state.device=device;}catch(e){storageOK=false;try{state=JSON.parse($('embeddedState').textContent)||blank();}catch{state=blank();}}
+$('storageWarning').hidden=storageOK;
+
+// How to Use Dialog Handlers
+$('howToUseBtn').onclick = () => {
+  $('howToUseDialog').showModal();
+};
+$('closeHowToUse').onclick = () => {
+  $('howToUseDialog').close();
+};
+
+// Admin Portal Logic & Multi-Branch Registry
+const ADMIN_PASS_KEY = APP_ID + '-admin-pass';
+function getAdminPassword(){
+  return localStorage.getItem(ADMIN_PASS_KEY) || 'Moryn2026';
+}
+function setAdminPassword(pass){
+  localStorage.setItem(ADMIN_PASS_KEY, pass);
+}
+
+$('adminPortalBtn').onclick = () => {
+  $('adminPasswordInput').value = '';
+  $('adminLoginError').textContent = '';
+  $('adminLoginDialog').showModal();
+  $('adminPasswordInput').focus();
+};
+
+$('closeAdminLogin').onclick = () => $('adminLoginDialog').close();
+
+$('adminLoginForm').onsubmit = (e) => {
+  e.preventDefault();
+  const inputPass = $('adminPasswordInput').value;
+  if(inputPass === getAdminPassword()){
+    $('adminLoginDialog').close();
+    syncBranchRegistry();
+    openAdminPortal();
+  } else {
+    $('adminLoginError').textContent = 'Incorrect admin password.';
+  }
+};
+
+function openAdminPortal(){
+  $('adminBranchDisplay').textContent = state.branch || 'Not Set';
+  $('adminMonthDisplay').textContent = state.month || 'Not Set';
+  $('currentAdminPass').value = '';
+  $('newAdminPass').value = '';
+  $('confirmAdminPass').value = '';
+  $('adminPassMsg').textContent = '';
+  
+  // Populate Branch Performance Table
+  populateAdminBranchTable();
+  $('adminPortalDialog').showModal();
+}
+
+function populateAdminBranchTable(){
+  syncBranchRegistry();
+  const tbody = $('adminBranchTbody');
+  tbody.replaceChildren();
+  let reg = {};
+  try { reg = JSON.parse(localStorage.getItem('capitalbet_branches_registry_v2') || '{}'); } catch(e){}
+  
+  // If current branch is present, ensure it's in reg
+  if(state.branch && state.month){
+    reg[state.branch] = reg[state.branch] || { months: {} };
+    reg[state.branch].months[state.month] = state;
+    reg[state.branch].currentMonth = state.month;
+  }
+  
+  const branches = Object.keys(reg);
+  if(branches.length === 0){
+    tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:12px;color:#64748b;">No branch records found yet. Confirm branch setup or enter sales.</td></tr>';
+    return;
+  }
+  
+  for(const branch of branches){
+    const branchData = reg[branch];
+    const month = branchData.currentMonth || Object.keys(branchData.months || {})[0] || 'N/A';
+    const monthState = branchData.months?.[month] || { rows: {}, targets: {} };
+    
+    // Calculate totals across rows
+    let normalTot = 0, virtualTot = 0, aviatorTot = 0, slotTot = 0;
+    for(const d in (monthState.rows || {})){
+      const r = monthState.rows[d] || {};
+      normalTot += Number(r.normal || 0);
+      virtualTot += Number(r.virtual || 0);
+      aviatorTot += Number(r.aviator || 0);
+      slotTot += Number(r.slot || 0);
+    }
+    
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td style="padding:8px;font-weight:600;color:var(--text-main);">${branch}</td>
+      <td style="padding:8px;color:var(--text-muted);">${month}</td>
+      <td style="padding:8px;text-align:right;font-family:'JetBrains Mono',monospace;">${normalTot.toLocaleString('en-GB',{maximumFractionDigits:2})}</td>
+      <td style="padding:8px;text-align:right;font-family:'JetBrains Mono',monospace;">${virtualTot.toLocaleString('en-GB',{maximumFractionDigits:2})}</td>
+      <td style="padding:8px;text-align:right;font-family:'JetBrains Mono',monospace;">${aviatorTot.toLocaleString('en-GB',{maximumFractionDigits:2})}</td>
+      <td style="padding:8px;text-align:right;font-family:'JetBrains Mono',monospace;">${slotTot.toLocaleString('en-GB',{maximumFractionDigits:2})}</td>
+      <td style="padding:8px;text-align:center;">
+        <button type="button" class="view-branch-btn" data-branch="${branch}" style="padding:4px 8px;font-size:11px;background:linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);">Select & Load</button>
+      </td>
+    `;
+    tbody.append(tr);
+  }
+  
+  // Attach click handlers
+  tbody.querySelectorAll('.view-branch-btn').forEach(btn => {
+    btn.onclick = () => {
+      const b = btn.dataset.branch;
+      if(reg[b] && reg[b].months){
+        const m = reg[b].currentMonth || Object.keys(reg[b].months)[0];
+        if(m && reg[b].months[m]){
+          state = reg[b].months[m];
+          persist(state);
+          render();
+          notify('Loaded branch: ' + b + ' (' + m + ')');
+          $('adminPortalDialog').close();
+        }
+      }
+    };
+  });
+}
+
+$('assignTargetForm').onsubmit = (e) => {
+  e.preventDefault();
+  const branch = $('targetBranchInput').value.trim();
+  const period = $('targetPeriodSelect').value;
+  const amtStr = $('targetAmountInput').value;
+  
+  try {
+    const amt = amount(amtStr, false);
+    let reg = {};
+    try { reg = JSON.parse(localStorage.getItem('capitalbet_branches_registry_v2') || '{}'); } catch(e){}
+    
+    reg[branch] = reg[branch] || { months: {}, assignedTargets: { daily: {}, weekly: {}, monthly: {} } };
+    reg[branch].assignedTargets = reg[branch].assignedTargets || { daily: {}, weekly: {}, monthly: {} };
+    reg[branch].assignedTargets[period] = amt;
+    
+    // Also update current state if it matches active branch
+    if(state.branch === branch){
+      // If monthly target, update normal target as well
+      if(period === 'monthly' && state.targets['normal']){
+        state.targets['normal'].value = amt;
+        state.targets['normal'].locked = true;
+      }
+    }
+    
+    localStorage.setItem('capitalbet_branches_registry_v2', JSON.stringify(reg));
+    persist(state);
+    
+    $('targetAssignMsg').style.color = '#059669';
+    $('targetAssignMsg').textContent = `Successfully assigned ${period.toUpperCase()} target of UGX ${amt.toLocaleString()} to ${branch}!`;
+    $('targetBranchInput').value = '';
+    $('targetAmountInput').value = '';
+    populateAdminBranchTable();
+  } catch(err){
+    $('targetAssignMsg').style.color = '#dc2626';
+    $('targetAssignMsg').textContent = err.message;
+  }
+};
+
+$('closeAdminPortal').onclick = () => $('adminPortalDialog').close();
+
+$('changeAdminPassForm').onsubmit = (e) => {
+  e.preventDefault();
+  const curr = $('currentAdminPass').value;
+  const newP = $('newAdminPass').value;
+  const confP = $('confirmAdminPass').value;
+
+  if(curr !== getAdminPassword()){
+    $('adminPassMsg').style.color = '#dc2626';
+    $('adminPassMsg').textContent = 'Current password is incorrect.';
+    return;
+  }
+  if(newP !== confP){
+    $('adminPassMsg').style.color = '#dc2626';
+    $('adminPassMsg').textContent = 'New passwords do not match.';
+    return;
+  }
+  setAdminPassword(newP);
+  $('adminPassMsg').style.color = '#059669';
+  $('adminPassMsg').textContent = 'Admin password updated successfully!';
+  $('currentAdminPass').value = '';
+  $('newAdminPass').value = '';
+  $('confirmAdminPass').value = '';
+};
+
+$('adminForceUnlock').onclick = () => {
+  if(confirm('Unlock branch setup for changes?')){
+    const next = copy();
+    next.setupLocked = false;
+    if(persist(next)){
+      render();
+      notify('Branch setup unlocked by Admin.');
+      $('adminPortalDialog').close();
+    }
+  }
+};
+
+$('adminExportAll').onclick = () => {
+  exportCSV();
+};
+
+
+// Branch Directory Management Logic
+function openBranchManager(){
+  const tbody = $('branchManagerTbody');
+  tbody.replaceChildren();
+  let reg = {};
+  try { reg = JSON.parse(localStorage.getItem('capitalbet_branches_registry_v2') || '{}'); } catch(e){}
+  
+  if(state.branch && state.month){
+    reg[state.branch] = reg[state.branch] || { months: {} };
+    reg[state.branch].months[state.month] = state;
+    reg[state.branch].currentMonth = state.month;
+  }
+  
+  const branches = Object.keys(reg);
+  if(branches.length === 0){
+    tbody.innerHTML = '<tr><td colspan="3" style="text-align:center;padding:12px;color:#64748b;">No branches registered.</td></tr>';
+    $('branchManagerDialog').showModal();
+    return;
+  }
+  
+  for(const branch of branches){
+    const branchData = reg[branch];
+    const month = branchData.currentMonth || 'N/A';
+    
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td style="padding:8px;font-weight:600;color:var(--text-main);">${branch}</td>
+      <td style="padding:8px;color:var(--text-muted);">${month}</td>
+      <td style="padding:8px;text-align:center;display:flex;gap:6px;justify-content:center;">
+        <button type="button" class="edit-branch-name" data-branch="${branch}" style="padding:4px 8px;font-size:11px;background:linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);color:white;">Edit Name</button>
+        <button type="button" class="delete-branch-btn" data-branch="${branch}" style="padding:4px 8px;font-size:11px;background:linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);color:white;">Delete</button>
+      </td>
+    `;
+    tbody.append(tr);
+  }
+  
+  tbody.querySelectorAll('.edit-branch-name').forEach(btn => {
+    btn.onclick = () => {
+      const oldName = btn.dataset.branch;
+      const newName = prompt('Enter new branch name for ' + oldName + ':', oldName);
+      if(newName && newName.trim() && newName.trim() !== oldName){
+        const trimmed = newName.trim();
+        if(reg[trimmed]){
+          alert('A branch with this name already exists.');
+          return;
+        }
+        reg[trimmed] = reg[oldName];
+        reg[trimmed].currentMonth = reg[oldName].currentMonth;
+        delete reg[oldName];
+        localStorage.setItem('capitalbet_branches_registry_v2', JSON.stringify(reg));
+        if(state.branch === oldName){
+          state.branch = trimmed;
+          persist(state);
+          render();
+        }
+        openBranchManager();
+        populateAdminBranchTable();
+        notify('Branch renamed to ' + trimmed);
+      }
+    };
+  });
+  
+  tbody.querySelectorAll('.delete-branch-btn').forEach(btn => {
+    btn.onclick = () => {
+      const b = btn.dataset.branch;
+      if(confirm('Are you sure you want to delete branch "' + b + '" from the registry?')){
+        delete reg[b];
+        localStorage.setItem('capitalbet_branches_registry_v2', JSON.stringify(reg));
+        openBranchManager();
+        populateAdminBranchTable();
+        notify('Branch record deleted.');
+      }
+    };
+  });
+  
+  $('branchManagerDialog').showModal();
+}
+
+$('openBranchManagerBtn').onclick = () => {
+  openBranchManager();
+};
+
+$('closeBranchManager').onclick = () => {
+  $('branchManagerDialog').close();
+  $('adminPortalDialog').showModal();
+};
+
+render();if(blocked)notify('Use Import CSV / recover to restore a CSV backup.');else if(!storageOK)notify('Browser storage is unavailable. You can use the sheet; save and download portable HTML before closing.');else if(state.setupLocked)notify('Saved sheet loaded: '+state.branch+' / '+state.month+'. Branch and saved targets remain locked. Use Edit month to switch months.');
+</script></div></body></html>
