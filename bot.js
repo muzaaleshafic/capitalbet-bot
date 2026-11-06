@@ -2,12 +2,14 @@ const puppeteer = require('puppeteer');
 const FormData = require('form-data');
 const fs = require('fs');
 const fetch = require('node-fetch');
-const path = require('path');
 
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const SUPERVISOR_CHAT_ID = process.env.SUPERVISOR_CHAT_ID;
 
-// List all your actual branches here
+// Your live Netlify site URL
+const LIVE_SITE_URL = 'https://targetsheet1.netlify.app/';
+
+// List your active branch names here
 const BRANCHES = ['Wantoni', 'Mukono', 'Jinja'];
 
 async function run() {
@@ -15,14 +17,12 @@ async function run() {
   const page = await browser.newPage();
   await page.setViewport({ width: 1400, height: 900 });
 
-  const filePath = 'file://' + path.join(process.cwd(), 'index.html');
-
   for (const branchName of BRANCHES) {
     try {
-      console.log(`Checking report for ${branchName}...`);
-      await page.goto(filePath, { waitUntil: 'networkidle2' });
+      console.log(`Checking live report for ${branchName}...`);
+      await page.goto(LIVE_SITE_URL, { waitUntil: 'networkidle2' });
 
-      // Automatically set the branch name
+      // Automatically fill in the branch name on the live site
       await page.evaluate((branch) => {
         const branchInput = document.getElementById('branch');
         if (branchInput) {
@@ -31,28 +31,28 @@ async function run() {
         }
       }, branchName);
 
-      await new Promise(r => setTimeout(r, 1500));
+      await new Promise(r => setTimeout(r, 2000));
 
-      // Check if there are actual sales figures entered (checking the normal total element)
+      // Check if sales data exists on the live page
       const hasSales = await page.evaluate(() => {
         const normalTotal = document.getElementById('normalTotal');
         if (!normalTotal) return false;
         const val = parseFloat(normalTotal.textContent.replace(/,/g, '')) || 0;
-        return val > 0; // Returns true only if sales total is greater than 0
+        return val > 0; // Only true if sales total is greater than 0
       });
 
       if (!hasSales) {
-        console.log(`Skipping ${branchName} - No sales data entered yet.`);
+        console.log(`Skipping ${branchName} - No sales data entered on the live site yet.`);
         continue; // Skip sending if no sales exist
       }
 
-      // If sales exist, capture and send
+      // Capture screenshot if sales exist
       const imagePath = `screenshot_${branchName}.png`;
       await page.screenshot({ path: imagePath, fullPage: true });
 
       const form = new FormData();
       form.append('chat_id', SUPERVISOR_CHAT_ID);
-      form.append('caption', `📊 *Daily Branch Report*\n🏢 Branch: *${branchName}*\n📅 Date: ${new Date().toLocaleDateString()}`);
+      form.append('caption`, `📊 *Daily Branch Report*\n🏢 Branch: *${branchName}*\n📅 Date: ${new Date().toLocaleDateString()}`);
       form.append('photo', fs.createReadStream(imagePath));
 
       const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
