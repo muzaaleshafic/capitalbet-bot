@@ -1,0 +1,27 @@
+name: Nightly Telegram Screenshot Bot
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs every day at 00:00 UTC (Midnight)
+  workflow_dispatch: # Allows you to test it manually anytime with a click
+
+jobs:
+  screenshot-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: npm install puppeteer node-fetch@2 form-data
+
+      - name: Run Automation Bot
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          SUPERVISOR_CHAT_ID: ${{ secrets.SUPERVISOR_CHAT_ID }}
+        run: node bot.js
